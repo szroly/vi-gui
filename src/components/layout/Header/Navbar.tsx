@@ -114,9 +114,10 @@ const Navbar: React.FC<{
               <img
                 src="/icons/logo/cover.png"
                 alt="Logo"
-                // className="h-20 w-auto"
+                className="cursor-pointer"
                 width={300}
                 height={100}
+                onClick={() => router.push('/')}
               />
             </div>
             <div className="lg:hidden flex items-center text-base-white z-[60]">
