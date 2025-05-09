@@ -6,14 +6,11 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-// import { getData } from '@/lib/axiosinstance';
-// import { useAuth } from '@/hooks/useAuth';
 import vehicleHandler from '@/handlers/vehicles';
 import { cookies } from 'next/headers';
 import { Vehicle } from '@/types/vehicle';
 
 const getVehicles = async () => {
-  // const { token } = useAuth();
   const cookieStore = await cookies();
   const appToken = cookieStore.get('jwt')?.value || '';
 
