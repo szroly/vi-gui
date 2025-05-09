@@ -1,4 +1,4 @@
-import { instance } from '@/lib/axiosinstance'
+import instance  from '@/lib/axiosinstance'
 import { AxiosResponse } from 'axios'
 
 const vehicleHandler = {

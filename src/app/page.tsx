@@ -1,8 +1,7 @@
-import Image from 'next/image';
+
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -11,6 +10,7 @@ import {
 // import { useAuth } from '@/hooks/useAuth';
 import vehicleHandler from '@/handlers/vehicles';
 import { cookies } from 'next/headers';
+import { Vehicle } from '@/types/vehicle';
 
 const getVehicles = async () => {
   // const { token } = useAuth();
@@ -26,10 +26,10 @@ const getVehicles = async () => {
 
 export default async function Home() {
   const vehicles = await getVehicles();
-  console.log({ vehicles });
+  console.log({vehicles})
   return (
     <div className="flex mb-10 md:mb-0  md:flex-row flex-col items-center justify-center h-screen how gap-20">
-      {vehicles?.map(( vehicle: any ) => (
+      {vehicles?.map(( vehicle: Vehicle ) => (
         <Card key={ vehicle.id } className=' h-[300px] md:px-30 px-10'>
           <CardHeader>
             <CardTitle className="text-center md:py-2">{ vehicle.make } { vehicle.model }</CardTitle>
@@ -39,10 +39,10 @@ export default async function Home() {
           <hr />
             <CardContent className="leading-8">
             <p>
-              <b>Engine power(hp):</b> { vehicle["engine_power(hp)"] }
+              <b>Engine power(hp):</b> { vehicle["engine_power"] }
             </p>
             <p>
-              <b>Engine size(ccm):</b> { vehicle["engine_size(ccm)"] }
+              <b>Engine size(ccm):</b> { vehicle["engine_size"] }
             </p>
             <p>
               <b>Production year:</b> { vehicle["production_year"] }

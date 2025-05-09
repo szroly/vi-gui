@@ -39,9 +39,8 @@ export const AuthProvider = ( { children } : { children: React.ReactNode } ) => 
   
   const initAuth = async () => {
     const appToken = getCookie( 'jwt' )?.toString() || "";
-    
+    console.log("INIT AUTH")
     if( appToken ) {
-      console.log("CHECKK")
       setLoading(true)
       try {
         const response = await userHandler.check( appToken, '/users/login/check' )
@@ -58,6 +57,7 @@ export const AuthProvider = ( { children } : { children: React.ReactNode } ) => 
         router.push( '/login' )
       }
     } else {
+      console.log("redirect to login")
       setLoading( false )
       router.push( '/login' )
     }
