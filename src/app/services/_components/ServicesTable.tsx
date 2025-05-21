@@ -19,7 +19,7 @@ export default function ServicesTable({ services }: { services: Service[] }) {
           <TableHead>ID</TableHead>
           <TableHead>DESCRIPTION</TableHead>
           <TableHead>PRICE</TableHead>
-          <TableHead>VEHICLE ID</TableHead>
+          <TableHead>VEHICLE</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -28,7 +28,7 @@ export default function ServicesTable({ services }: { services: Service[] }) {
             <TableCell>{service.id}</TableCell>
             <TableCell>{service.description}</TableCell>
             <TableCell>{service.price}</TableCell>
-            <TableCell>{service.vehicle_id}</TableCell>
+            <TableCell>{service?.vehicle.make}{service?.vehicle.model}</TableCell>
           </TableRow>
         ))}
       </TableBody>
