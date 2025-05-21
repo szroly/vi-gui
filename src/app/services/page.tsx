@@ -1,33 +1,31 @@
 import { Button } from '@/components/ui/button';
 import { Plus } from 'lucide-react';
 import { cookies } from 'next/headers';
-import equipmentsHandler from '@/handlers/equipments';
-import EquipmentsTable from './_components/EquipmentsTable';
+import servicesHandler from '@/handlers/services';
+import ServicesTable from './_components/ServicesTable';
 
-
-const getEquipments = async () => {
+const getServices = async () => {
   const cookieStore = await cookies();
   const appToken = cookieStore.get('jwt')?.value || '';
 
   if (appToken) {
-    const response = await equipmentsHandler.getEquipments(appToken, '/equipments');
+    const response = await servicesHandler.getServices(appToken, '/services');
     const data = await response.data;
     return data;
   }
 }
 
-export default async function Equipments() {
-  const equipments = await getEquipments();
-  console.log({ equipments });
-  
+export default async function Services() {
+  const services = await getServices();
+  console.log(services);
   return (
     <div className="mx-10">
       <Button className='mb-5'>
         <Plus className="mr-2" />
-        ADD EQUIPMENT
+        ADD SERVICE
       </Button>
 
-      <EquipmentsTable equipments={equipments} />
+      <ServicesTable services={services} />
     </div>
   )
 }
