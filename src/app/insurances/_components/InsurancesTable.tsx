@@ -20,6 +20,7 @@ export default function InsurancesTable({ insurances }: { insurances: Insurance[
           <TableHead>TYPE</TableHead>
           <TableHead>PRICE</TableHead>
           <TableHead>EXPIRE DATE</TableHead>
+          <TableHead>VEHICLE</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -29,6 +30,7 @@ export default function InsurancesTable({ insurances }: { insurances: Insurance[
             <TableCell>{insurance.type}</TableCell>
             <TableCell>{insurance.price}</TableCell>
             <TableCell>{insurance.expire_date}</TableCell>
+            <TableCell>{insurance?.vehicle.make}{insurance?.vehicle.model}</TableCell>
           </TableRow>
         ))}
       </TableBody>

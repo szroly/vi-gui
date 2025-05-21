@@ -18,7 +18,7 @@ export default function ServicesTable({ firstAids }: { firstAids: FirstAid[] }) 
         <TableRow>
           <TableHead>ID</TableHead>
           <TableHead>MANUFACTURER</TableHead>
-          <TableHead>VEHICLE ID</TableHead>
+          <TableHead>VEHICLE</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -26,7 +26,7 @@ export default function ServicesTable({ firstAids }: { firstAids: FirstAid[] }) 
           <TableRow key={firstAid.id}>
             <TableCell>{firstAid.id}</TableCell>
             <TableCell>{firstAid.manufacturer}</TableCell>
-            <TableCell>{firstAid.vehicle_id}</TableCell>
+            <TableCell>{firstAid?.vehicle.make}{firstAid?.vehicle.model}</TableCell>
           </TableRow>
         ))}
       </TableBody>

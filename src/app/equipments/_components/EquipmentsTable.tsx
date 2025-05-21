@@ -17,10 +17,8 @@ export default function EquipmentsTable({ equipments }: { equipments: Equipment[
       <TableHeader>
         <TableRow>
           <TableHead>ID</TableHead>
-          <TableHead>VEHICLE ID</TableHead>
           <TableHead>NAME</TableHead>
-          <TableHead>CREATED AT</TableHead>
-          <TableHead>UPDATED AT</TableHead>
+          <TableHead>VEHICLE</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -29,8 +27,7 @@ export default function EquipmentsTable({ equipments }: { equipments: Equipment[
             <TableCell>{equipment.id}</TableCell>
             <TableCell>{equipment.vehicle_id}</TableCell>
             <TableCell>{equipment.equipment_name}</TableCell>
-            <TableCell>{equipment.created_at}</TableCell>
-            <TableCell>{equipment.updated_at}</TableCell>
+            <TableCell>{equipment?.vehicle.make}{equipment?.vehicle.model}</TableCell>
           </TableRow>
         ))}
       </TableBody>
