@@ -1,3 +1,4 @@
+'use client'
 import {
   Table,
   TableBody,
@@ -10,8 +11,12 @@ import {
 
 import { Vehicle } from "@/types/vehicle"
 
+import { useRouter } from "next/navigation";
+
 
 export default function VehiclesTable({ vehicles }: { vehicles: Vehicle[] }) {
+  const router = useRouter();
+
   return (
     <Table>
       <TableCaption>List of Vehicles</TableCaption>
@@ -27,7 +32,11 @@ export default function VehiclesTable({ vehicles }: { vehicles: Vehicle[] }) {
       </TableHeader>
       <TableBody>
         {vehicles.map((vehicle) => (
-          <TableRow key={vehicle.id}>
+          <TableRow 
+            key={vehicle.id} 
+            style={{ cursor: "pointer" }}
+            onClick={() => router.push(`/vehicles/${vehicle.id}`)}
+          >
             <TableCell>{vehicle.make}</TableCell>
             <TableCell>{vehicle.model}</TableCell>
             <TableCell>{vehicle.engine_power}</TableCell>
